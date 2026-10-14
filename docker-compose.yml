@@ -1,0 +1,13 @@
+services:
+  yellowrakk:
+    build: .
+    restart: unless-stopped
+    ports:
+      # Bound to localhost only: there is no login yet. Reach it from your
+      # phone through Tailscale (see README), not by opening it to the LAN.
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - yellowrakk-data:/data
+
+volumes:
+  yellowrakk-data:

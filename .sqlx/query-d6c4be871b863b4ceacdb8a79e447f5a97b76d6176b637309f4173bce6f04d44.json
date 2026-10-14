@@ -1,0 +1,26 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT product_id AS \"product_id: ProductId\" FROM listings WHERE url = ?",
+  "describe": {
+    "columns": [
+      {
+        "name": "product_id: ProductId",
+        "ordinal": 0,
+        "type_info": "Blob",
+        "origin": {
+          "Table": {
+            "table": "listings",
+            "name": "product_id"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "d6c4be871b863b4ceacdb8a79e447f5a97b76d6176b637309f4173bce6f04d44"
+}

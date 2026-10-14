@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "INSERT INTO price_observations (listing_id, minor_units, currency, observed_at)\n                 VALUES (?, ?, ?, ?)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 4
+    },
+    "nullable": []
+  },
+  "hash": "b8f78597a8180b7a8165d4d83fa703f9e02bf6857a60ac2b962fcf72afde6a4a"
+}

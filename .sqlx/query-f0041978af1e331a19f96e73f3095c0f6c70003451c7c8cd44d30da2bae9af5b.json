@@ -1,0 +1,122 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT\n                 l.id AS \"id: ListingId\",\n                 l.url,\n                 l.shop,\n                 l.title,\n                 l.image_url,\n                 l.status AS \"status: ListingStatus\",\n                 l.created_at AS \"created_at: OffsetDateTime\",\n                 p.minor_units AS \"minor_units?: i64\",\n                 p.currency AS \"currency?: String\"\n               FROM listings l\n               LEFT JOIN price_observations p ON p.id = (\n                 SELECT id FROM price_observations\n                 WHERE listing_id = l.id\n                 ORDER BY observed_at DESC, id DESC\n                 LIMIT 1\n               )\n               WHERE l.product_id = ?\n               ORDER BY l.created_at",
+  "describe": {
+    "columns": [
+      {
+        "name": "id: ListingId",
+        "ordinal": 0,
+        "type_info": "Blob",
+        "origin": {
+          "Table": {
+            "table": "listings",
+            "name": "id"
+          }
+        }
+      },
+      {
+        "name": "url",
+        "ordinal": 1,
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "listings",
+            "name": "url"
+          }
+        }
+      },
+      {
+        "name": "shop",
+        "ordinal": 2,
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "listings",
+            "name": "shop"
+          }
+        }
+      },
+      {
+        "name": "title",
+        "ordinal": 3,
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "listings",
+            "name": "title"
+          }
+        }
+      },
+      {
+        "name": "image_url",
+        "ordinal": 4,
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "listings",
+            "name": "image_url"
+          }
+        }
+      },
+      {
+        "name": "status: ListingStatus",
+        "ordinal": 5,
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "listings",
+            "name": "status"
+          }
+        }
+      },
+      {
+        "name": "created_at: OffsetDateTime",
+        "ordinal": 6,
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "listings",
+            "name": "created_at"
+          }
+        }
+      },
+      {
+        "name": "minor_units?: i64",
+        "ordinal": 7,
+        "type_info": "Integer",
+        "origin": {
+          "Table": {
+            "table": "price_observations",
+            "name": "minor_units"
+          }
+        }
+      },
+      {
+        "name": "currency?: String",
+        "ordinal": 8,
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "price_observations",
+            "name": "currency"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true
+    ]
+  },
+  "hash": "f0041978af1e331a19f96e73f3095c0f6c70003451c7c8cd44d30da2bae9af5b"
+}
